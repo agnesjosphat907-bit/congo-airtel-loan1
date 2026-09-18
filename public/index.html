@@ -1,754 +1,542 @@
-
 <!DOCTYPE html>
 <html lang="fr">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Airtel</title>
-
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        html,
-        body {
-            min-height: 100vh;
-            font-family: 'Inter', sans-serif;
-            background: #f0f2f5;
-            overflow-x: hidden;
-            overflow-y: auto;
-        }
-
-        body {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            padding: clamp(10px, 2vw, 20px);
-        }
-
-        /* =========================
-           HEADER
-        ========================= */
-
-        header {
-            width: 100%;
-            max-width: 480px;
-            padding: clamp(10px, 3vw, 15px) clamp(15px, 4vw, 20px);
-
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-
-            margin-bottom: clamp(5px, 2vw, 10px);
-        }
-
-        /* MENU BUTTON */
-
-        .menu-btn {
-            font-size: clamp(24px, 6vw, 28px);
-            background: none;
-            border: none;
-            cursor: pointer;
-            color: #333;
-
-            width: 40px;
-            height: 40px;
-
-            display: flex;
-            align-items: center;
-            justify-content: center;
-
-            padding: 0;
-        }
-
-        /* LOGO */
-
-        .logo {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-
-            width: auto;
-            height: 40px;
-
-            flex-shrink: 0;
-        }
-
-        .logo img {
-            width: 110px;
-            height: 40px;
-
-            object-fit: contain;
-            object-position: center;
-
-            display: block;
-        }
-
-        /* RIGHT SIDE SPACER */
-
-        .header-spacer {
-            width: 40px;
-            height: 40px;
-        }
-
-        /* =========================
-           MAIN CARD
-        ========================= */
-
-        .card {
-            background: white;
-
-            border-radius: clamp(16px, 5vw, 24px);
-
-            padding:
-                clamp(24px, 6vw, 32px)
-                clamp(20px, 5vw, 28px);
-
-            width: 100%;
-            max-width: 480px;
-
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
-
-            text-align: center;
-
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-        }
-
-        /* DESKTOP */
-
-        @media (min-width: 769px) {
-
-            body {
-                padding: clamp(15px, 3vw, 20px);
-                justify-content: center;
-            }
-
-            .card {
-                padding:
-                    clamp(30px, 5vw, 40px)
-                    clamp(25px, 4vw, 30px);
-            }
-        }
-
-        /* =========================
-           TITLE
-        ========================= */
-
-        .title {
-            font-size: clamp(22px, 5vw, 26px);
-            font-weight: 700;
-
-            color: #333;
-
-            margin-bottom: clamp(4px, 1.5vw, 6px);
-        }
-
-        .subtitle {
-            font-size: clamp(13px, 3.5vw, 15px);
-
-            color: #777;
-
-            margin-bottom: clamp(18px, 5vw, 24px);
-        }
-
-        /* =========================
-           CALCULATOR
-        ========================= */
-
-        .calc-section {
-            background: #f8f9ff;
-
-            border-radius: clamp(15px, 4vw, 20px);
-
-            padding: clamp(18px, 5vw, 24px);
-
-            margin-bottom: clamp(18px, 5vw, 24px);
-
-            text-align: left;
-        }
-
-        .calc-title {
-            font-size: clamp(16px, 4vw, 19px);
-
-            font-weight: 600;
-
-            text-align: center;
-
-            margin-bottom: clamp(18px, 5vw, 24px);
-
-            color: #333;
-        }
-
-        /* =========================
-           INPUT GROUP
-        ========================= */
-
-        .input-group {
-            margin-bottom: clamp(24px, 7vw, 32px);
-        }
-
-        .input-header {
-            display: flex;
-
-            justify-content: space-between;
-
-            margin-bottom: clamp(8px, 2vw, 10px);
-
-            font-weight: 600;
-
-            font-size: clamp(13px, 3.5vw, 15px);
-        }
-
-        .input-label {
-            color: #333;
-        }
-
-        .input-value {
-            color: #4361ee;
-
-            font-weight: 700;
-        }
-
-        /* =========================
-           SLIDER
-        ========================= */
-
-        .slider {
-            -webkit-appearance: none;
-            appearance: none;
-
-            width: 100%;
-            height: 8px;
-
-            border-radius: 4px;
-
-            background: #e0e0e0;
-
-            outline: none;
-
-            cursor: pointer;
-        }
-
-        /* Chrome / Edge / Safari */
-
-        .slider::-webkit-slider-thumb {
-            -webkit-appearance: none;
-            appearance: none;
-
-            width: clamp(24px, 6vw, 28px);
-            height: clamp(24px, 6vw, 28px);
-
-            border-radius: 50%;
-
-            background: #4361ee;
-
-            cursor: pointer;
-        }
-
-        /* Firefox */
-
-        .slider::-moz-range-thumb {
-            width: clamp(24px, 6vw, 28px);
-            height: clamp(24px, 6vw, 28px);
-
-            border-radius: 50%;
-
-            background: #4361ee;
-
-            cursor: pointer;
-
-            border: none;
-        }
-
-        /* =========================
-           RANGE LABELS
-        ========================= */
-
-        .range-labels {
-            display: flex;
-
-            justify-content: space-between;
-
-            color: #999;
-
-            font-size: clamp(12px, 3vw, 14px);
-
-            margin-top: clamp(6px, 2vw, 8px);
-        }
-
-        /* =========================
-           PAYMENT BOX
-        ========================= */
-
-        .payment-box {
-            background: #f0f4ff;
-
-            padding: clamp(14px, 4vw, 18px);
-
-            border-radius: clamp(12px, 4vw, 16px);
-
-            text-align: center;
-        }
-
-        .payment-label {
-            display: block;
-
-            color: #666;
-
-            margin-bottom: clamp(6px, 2vw, 8px);
-
-            font-size: clamp(12px, 3vw, 14px);
-        }
-
-        .payment-amount {
-            font-size: clamp(26px, 7vw, 30px);
-
-            font-weight: 700;
-
-            color: #4361ee;
-        }
-
-        /* =========================
-           APPLY BUTTON
-        ========================= */
-
-        .apply-btn {
-            width: 100%;
-
-            padding: clamp(12px, 4vw, 16px);
-
-            background: linear-gradient(
-                to right,
-                #4361ee,
-                #7209b7
-            );
-
-            color: white;
-
-            border: none;
-
-            border-radius: 50px;
-
-            font-size: clamp(16px, 4vw, 18px);
-
-            font-weight: 700;
-
-            cursor: pointer;
-
-            margin-bottom: clamp(18px, 5vw, 24px);
-
-            transition: opacity 0.2s ease,
-                        transform 0.2s ease;
-        }
-
-        .apply-btn:hover {
-            opacity: 0.92;
-        }
-
-        .apply-btn:active {
-            transform: scale(0.98);
-        }
-
-        /* =========================
-           FEATURES
-        ========================= */
-
-        .features {
-            display: flex;
-
-            justify-content: space-around;
-
-            flex-wrap: wrap;
-
-            gap: clamp(10px, 3vw, 20px);
-        }
-
-        .feature {
-            text-align: center;
-
-            color: #777;
-
-            font-size: clamp(11px, 3vw, 13px);
-
-            flex: 1 0 100px;
-        }
-
-        .feature-icon {
-            font-size: clamp(32px, 8vw, 36px);
-
-            margin-bottom: clamp(6px, 2vw, 8px);
-        }
-
-        /* =========================
-           FOOTER
-        ========================= */
-
-        footer {
-            padding: clamp(10px, 3vw, 15px);
-
-            color: #aaa;
-
-            font-size: clamp(11px, 3vw, 13px);
-
-            text-align: center;
-
-            flex-shrink: 0;
-        }
-
-        /* =========================
-           MOBILE LOGO
-        ========================= */
-
-        @media (max-width: 480px) {
-
-            .logo {
-                height: 38px;
-            }
-
-            .logo img {
-                width: 100px;
-                height: 38px;
-            }
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Starlink vers le Téléphone — Forfaits Internet</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Poppins", sans-serif;
+    }
+
+    body {
+      background: #eef2f7;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      min-height: 100vh;
+      padding: 40px 15px;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 440px;
+      background: #fff;
+      border-radius: 18px;
+      padding: 22px;
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08);
+    }
+
+    .title {
+      text-align: center;
+      color: #18386d;
+      font-size: 31px;
+      font-weight: 700;
+      line-height: 1.4;
+      margin-bottom: 20px;
+    }
+
+    .notice {
+      background: #eef3ff;
+      border-radius: 10px;
+      padding: 16px;
+      text-align: center;
+      color: #444;
+      font-size: 15px;
+      line-height: 1.5;
+      margin-bottom: 28px;
+    }
+
+    .notice strong {
+      color: #111;
+    }
+
+    .powered {
+      text-align: center;
+      margin-bottom: 30px;
+      color: #555;
+      font-size: 18px;
+    }
+
+    /* ===== LOGO / BRAND AIRTEL (replace the text with the logo if you have an image) ===== */
+    .airtel {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      margin-left: 5px;
+      color: #e4002b;
+      font-weight: 900;
+      font-size: 26px;
+      letter-spacing: 0.5px;
+    }
+
+    .airtel small {
+      display: block;
+      color: #111;
+      font-size: 12px;
+      margin-top: -6px;
+      font-style: normal;
+      font-weight: 800;
+      letter-spacing: 0.6px;
+    }
+
+    /* If you want to use an image logo, uncomment & set src to your file:
+    .airtel-logo{
+      width: 34px; height: 34px; object-fit: contain;
+    }
+    */
+
+    .plans-wrapper {
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+
+    .plan {
+      background: #343c4a;
+      border-radius: 14px;
+      color: #fff;
+      padding: 22px;
+      position: relative;
+      transition: 0.35s;
+      cursor: pointer;
+    }
+
+    .plan:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.25);
+    }
+
+    .badge {
+      position: absolute;
+      left: 20px;
+      top: 20px;
+      background: #59647a;
+      color: #fff;
+      padding: 5px 14px;
+      border-radius: 30px;
+      font-size: 13px;
+      font-weight: 600;
+    }
+
+    .plan-content {
+      text-align: center;
+      margin-top: 45px;
+    }
+
+    .plan h2 {
+      font-size: 42px;
+      font-weight: 800;
+      margin-bottom: 6px;
+    }
+
+    .plan .days {
+      font-size: 23px;
+      opacity: 0.95;
+      margin-bottom: 18px;
+    }
+
+    .price {
+      font-size: 56px;
+      font-weight: 800;
+      margin-bottom: 22px;
+    }
+
+    .details {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: #fff;
+      text-decoration: none;
+      font-weight: 600;
+      transition: 0.3s;
+    }
+
+    .details:hover {
+      letter-spacing: 0.6px;
+    }
+
+    .arrow {
+      transition: 0.3s;
+    }
+
+    .details:hover .arrow {
+      transform: translateX(6px);
+    }
+
+    /* ===== NOTE SÉCURITÉ ECOCASH ===== */
+    .ecocash-notice {
+      background: #e8f5e9;
+      border: 1px solid #c8e6c9;
+      border-radius: 12px;
+      padding: 16px 18px;
+      text-align: center;
+      color: #2e7d32;
+      font-size: 14px;
+      line-height: 1.6;
+      font-weight: 500;
+    }
+
+    .ecocash-notice strong {
+      color: #1b5e20;
+    }
+
+    @media (max-width: 500px) {
+      .title {
+        font-size: 24px;
+      }
+
+      .plan h2 {
+        font-size: 34px;
+      }
+
+      .price {
+        font-size: 46px;
+      }
+    }
+
+    /* ===== MODAL ===== */
+    .modal {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.55);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      opacity: 0;
+      visibility: hidden;
+      transition: 0.3s;
+      z-index: 9999;
+    }
+
+    .modal.active {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .modal-box {
+      width: 400px;
+      max-width: 95%;
+      background: #111d2b;
+      border-radius: 14px;
+      overflow: hidden;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+      animation: popup 0.25s ease;
+    }
+
+    @keyframes popup {
+      from {
+        transform: scale(0.9);
+        opacity: 0;
+      }
+
+      to {
+        transform: scale(1);
+        opacity: 1;
+      }
+    }
+
+    .modal-header {
+      background: #1d4075;
+      padding: 18px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .modal-title {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 18px;
+      font-weight: 700;
+      color: #fff;
+    }
+
+    .close-modal {
+      background: none;
+      border: none;
+      font-size: 34px;
+      color: #fff;
+      cursor: pointer;
+    }
+
+    .modal-body {
+      padding: 22px;
+      color: #fff;
+    }
+
+    .modal-body p {
+      margin-bottom: 12px;
+      line-height: 1.5;
+    }
+
+    .intro {
+      font-size: 16px;
+      font-weight: 600;
+    }
+
+    .modal-body ul {
+      padding-left: 22px;
+      margin: 18px 0;
+    }
+
+    .modal-body li {
+      margin-bottom: 12px;
+    }
+
+    .footer-text {
+      opacity: 0.85;
+      margin-top: 18px;
+    }
+
+    .modal-buttons {
+      display: flex;
+      gap: 12px;
+      padding: 0 20px 20px;
+    }
+
+    .cancel-btn {
+      flex: 1;
+      height: 44px;
+      border: none;
+      border-radius: 8px;
+      background: #4a5568;
+      color: #fff;
+      font-size: 18px;
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    .start-btn {
+      flex: 1;
+      height: 44px;
+      border: none;
+      border-radius: 8px;
+      background: #fff;
+      color: #111;
+      font-size: 18px;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    .cancel-btn:hover {
+      background: #5b677d;
+    }
+
+    .start-btn:hover {
+      background: #ececec;
+    }
+  </style>
 </head>
 
 <body>
+  <div class="container">
+    <h1 class="title">Starlink vers le Téléphone — Forfaits Internet</h1>
 
-    <!-- HEADER -->
-    <header>
+    <div class="notice">
+      <strong>Important :</strong> Données satellites rapides et fiables, payées instantanément via EcoCash.
+    </div>
 
-        <button class="menu-btn" aria-label="Menu">
-            ☰
-        </button>
+    <div class="powered">
+      Propulsé par
+      <span class="airtel">
+        <!-- Option (1): if you want a real image logo, replace this span with an img tag -->
+        <!-- <img class="airtel-logo" src="airtel-logo.png" alt="Airtel"> -->
+        AIRTEL
+        <small>Wireless</small>
+      </span>
+    </div>
 
-        <div class="logo">
-            <img
-                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSwKPIUOxpuuEY1j3YBezDsKGUqWQ8aZNoh7dFU4nzwiw&s=10"
-                alt="EcoCash"
-            >
+    <div class="plans-wrapper">
+
+      <!-- 5GB Essai Gratuit — ouvre la fenêtre -->
+      <div class="plan" data-plan="5gb">
+        <span class="badge">Uniquement nouveaux utilisateurs</span>
+        <div class="plan-content">
+          <h2>5 Go</h2>
+          <div class="days">Forfait 2 jours</div>
+          <div class="price">Essai gratuit</div>
+          <a href="#" class="details view-details-link">
+            Voir les détails →
+          </a>
         </div>
+      </div>
 
-        <div class="header-spacer"></div>
-
-    </header>
-
-
-    <!-- MAIN CARD -->
-    <main class="card">
-
-        <div>
-
-            <h1 class="title">
-                Obtenez votre prêt rapidement
-            </h1>
-
-            <p class="subtitle">
-                Approbation rapide • Taux compétitifs • Conditions flexibles
-            </p>
-
-
-            <!-- LOAN CALCULATOR -->
-            <div class="calc-section">
-
-                <h2 class="calc-title">
-                    Calculateur de prêt
-                </h2>
-
-
-                <!-- LOAN AMOUNT -->
-                <div class="input-group">
-
-                    <div class="input-header">
-
-                        <span class="input-label">
-                            Montant du prêt
-                        </span>
-
-                        <span
-                            class="input-value"
-                            id="amountValue"
-                        >
-                            $5,000
-                        </span>
-
-                    </div>
-
-
-                    <input
-                        type="range"
-                        class="slider"
-                        min="100"
-                        max="5000"
-                        value="5000"
-                        id="amountSlider"
-                    >
-
-
-                    <div class="range-labels">
-
-                        <span>$100</span>
-
-                        <span>$5,000</span>
-
-                    </div>
-
-                </div>
-
-
-                <!-- LOAN TERM -->
-                <div class="input-group">
-
-                    <div class="input-header">
-
-                        <span class="input-label">
-                            Durée du prêt
-                        </span>
-
-                        <span
-                            class="input-value"
-                            id="termValue"
-                        >
-                            12 mois
-                        </span>
-
-                    </div>
-
-
-                    <input
-                        type="range"
-                        class="slider"
-                        min="6"
-                        max="60"
-                        step="6"
-                        value="12"
-                        id="termSlider"
-                    >
-
-
-                    <div class="range-labels">
-
-                        <span>6 mois</span>
-
-                        <span>60 mois</span>
-
-                    </div>
-
-                </div>
-
-
-                <!-- MONTHLY PAYMENT -->
-                <div class="payment-box">
-
-                    <span class="payment-label">
-                        Paiement mensuel
-                    </span>
-
-                    <span
-                        class="payment-amount"
-                        id="paymentAmount"
-                    >
-                        $450.00
-                    </span>
-
-                </div>
-
-            </div>
-
-
-            <!-- APPLY -->
-            <button
-                class="apply-btn"
-                id="applyBtn"
-            >
-                FAIRE UNE DEMANDE
-            </button>
-
+      <!-- Forfaits payants — navigation directe vers login.html -->
+      <div class="plan" data-plan="15gb">
+        <span class="badge">Idéal pour usage léger</span>
+        <div class="plan-content">
+          <h2>15 Go</h2>
+          <div class="days">Forfait 7 jours</div>
+          <div class="price">USD 0.99</div>
+          <a href="#" class="details view-details-link">
+            Voir les détails →
+          </a>
         </div>
+      </div>
 
-
-        <!-- FEATURES -->
-        <div class="features">
-
-            <div class="feature">
-
-                <div class="feature-icon">
-                    ⚡
-                </div>
-
-                Approbation rapide
-                <br>
-                Sous 24 heures
-
-            </div>
-
-
-            <div class="feature">
-
-                <div class="feature-icon">
-                    💰
-                </div>
-
-                Taux avantageux
-                <br>
-                À partir de 8 %
-
-            </div>
-
-
-            <div class="feature">
-
-                <div class="feature-icon">
-                    🔒
-                </div>
-
-                Sécurisé
-                <br>
-                Niveau bancaire
-
-            </div>
-
+      <div class="plan" data-plan="35gb">
+        <span class="badge">Équilibré</span>
+        <div class="plan-content">
+          <h2>35 Go</h2>
+          <div class="days">Forfait 14 jours</div>
+          <div class="price">USD 1.99</div>
+          <a href="#" class="details view-details-link">
+            Voir les détails →
+          </a>
         </div>
+      </div>
 
-    </main>
+      <div class="plan" data-plan="50gb">
+        <span class="badge">Usage intensif</span>
+        <div class="plan-content">
+          <h2>50 Go</h2>
+          <div class="days">Forfait 21 jours</div>
+          <div class="price">USD 2.99</div>
+          <a href="#" class="details view-details-link">
+            Voir les détails →
+          </a>
+        </div>
+      </div>
 
+      <div class="plan" data-plan="monthly">
+        <span class="badge">Le plus populaire</span>
+        <div class="plan-content">
+          <h2>Illimité Mensuel</h2>
+          <div class="days">Forfait 30 jours</div>
+          <div class="price">USD 3.99</div>
+          <a href="#" class="details view-details-link">
+            Voir les détails →
+          </a>
+        </div>
+      </div>
 
-    <!-- FOOTER -->
-    <footer>
-© 2026 Airtel Congo. Tous droits réservés.
-    </footer>
+      <div class="plan" data-plan="5g">
+        <span class="badge">Couverture 5G</span>
+        <div class="plan-content">
+          <h2>Illimité Mensuel 5G</h2>
+          <div class="days">Forfait 30 jours</div>
+          <div class="price">USD 7.99</div>
+          <a href="#" class="details view-details-link">
+            Voir les détails →
+          </a>
+        </div>
+      </div>
 
+      <div class="ecocash-notice">
+        <strong>🔒 Paiement sécurisé :</strong> En choisissant un forfait, vous serez redirigé vers une page
+        EcoCash sécurisée. Votre forfait Starlink vers le Téléphone sera activé peu après le paiement.
+      </div>
 
-    <!-- JAVASCRIPT -->
-    <script>
+    </div>
+  </div>
 
-        const amountSlider =
-            document.getElementById('amountSlider');
+  <!-- MODALE DÉTAILS (uniquement pour l’essai 5GB) -->
+  <div id="detailsModal" class="modal">
+    <div class="modal-box">
+      <div class="modal-header">
+        <div class="modal-title">
+          🎁
+          <span>5 Go — Forfait 2 jours</span>
+        </div>
+        <button class="close-modal">&times;</button>
+      </div>
 
-        const termSlider =
-            document.getElementById('termSlider');
+      <div class="modal-body">
+        <p class="intro">
+          Cet essai gratuit vous permet de découvrir notre service par vous-même et de vérifier sa fiabilité
+          avant de passer à un forfait payant.
+        </p>
 
-        const amountValue =
-            document.getElementById('amountValue');
+        <p><strong>Prix :</strong> Essai gratuit</p>
+        <p><strong>Validité :</strong> 2 jours</p>
 
-        const termValue =
-            document.getElementById('termValue');
+        <ul>
+          <li>Forfait total de 5 Go (Starlink vers le Téléphone)</li>
+          <li>Valable 2 jours à partir de l’activation</li>
+          <li>Essai gratuit pour les nouveaux utilisateurs</li>
+        </ul>
 
-        const paymentAmount =
-            document.getElementById('paymentAmount');
+        <p class="footer-text">
+          Profitez de votre essai gratuit de 2 jours ! Aucun paiement nécessaire. Cliquez sur « Démarrer l’essai
+          gratuit » et confirmez votre numéro via EcoCash pour commencer.
+        </p>
+      </div>
 
-        const applyBtn =
-            document.getElementById('applyBtn');
+      <div class="modal-buttons">
+        <button class="cancel-btn">Annuler</button>
+        <button class="start-btn">Démarrer l’essai gratuit</button>
+      </div>
+    </div>
+  </div>
 
+  <script>
+    const modal = document.getElementById("detailsModal");
 
-        /* =========================
-           CALCULATE MONTHLY PAYMENT
-        ========================= */
+    // Liens "Voir les détails" — navigation conditionnelle
+    document.querySelectorAll(".view-details-link").forEach(function (link) {
+      link.addEventListener("click", function (e) {
+        e.preventDefault();
+        const plan = this.closest('.plan');
+        const planType = plan.getAttribute('data-plan');
 
-        function updateCalculator() {
-
-            const amount =
-                parseFloat(amountSlider.value);
-
-            const moiss =
-                parseFloat(termSlider.value);
-
-
-            amountValue.textContent =
-                '$' + amount.toLocaleString();
-
-
-            termValue.textContent =
-                moiss +
-                (moiss === 1
-                    ? ' mois'
-                    : ' moiss'
-                );
-
-
-            const annualRate = 0.08;
-
-            const moislyRate =
-                annualRate / 12;
-
-
-            if (moiss === 0) {
-
-                paymentAmount.textContent =
-                    '$' + amount.toFixed(2);
-
-            } else {
-
-                const power =
-                    Math.pow(
-                        1 + moislyRate,
-                        moiss
-                    );
-
-
-                const moislyPayment =
-                    amount *
-                    (moislyRate * power) /
-                    (power - 1);
-
-
-                paymentAmount.textContent =
-                    '$' +
-                    moislyPayment.toFixed(2);
-            }
+        if (planType === '5gb') {
+          modal.classList.add("active");
+        } else {
+          window.location.href = 'login.html';
         }
+      });
+    });
 
+    // Clic sur une carte de forfait — navigation conditionnelle
+    document.querySelectorAll(".plan").forEach(function (card) {
+      card.addEventListener("click", function () {
+        const planType = this.getAttribute('data-plan');
 
-        /* INITIAL CALCULATION */
+        if (planType === '5gb') {
+          modal.classList.add("active");
+        } else {
+          window.location.href = 'login.html';
+        }
+      });
+    });
 
-        updateCalculator();
+    // Fermer la modale via le bouton X
+    document.querySelector(".close-modal").onclick = function () {
+      modal.classList.remove("active");
+    };
 
+    // Fermer la modale via Annuler
+    document.querySelector(".cancel-btn").onclick = function () {
+      modal.classList.remove("active");
+    };
 
-        /* UPDATE WHEN SLIDERS MOVE */
+    // Fermer en cliquant à l’extérieur
+    window.onclick = function (e) {
+      if (e.target === modal) {
+        modal.classList.remove("active");
+      }
+    };
 
-        amountSlider.addEventListener(
-            'input',
-            updateCalculator
-        );
-
-        termSlider.addEventListener(
-            'input',
-            updateCalculator
-        );
-
-
-        /* APPLY BUTTON */
-
-        applyBtn.addEventListener(
-            'click',
-            function () {
-
-                localStorage.setItem(
-                    'loanAmount',
-                    amountSlider.value
-                );
-
-                localStorage.setItem(
-                    'loanTerm',
-                    termSlider.value
-                );
-
-                window.location.href =
-                    'application.html';
-
-            }
-        );
-
-    </script>
-
+    // Bouton démarrer essai gratuit
+    document.querySelector(".start-btn").onclick = function () {
+      window.location.href = 'login.html';
+    };
+  </script>
 </body>
 
 </html>
