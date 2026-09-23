@@ -1,326 +1,383 @@
-">
-            ☰
-        </button>
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Airtel 5G+ RDC</title>
+
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial,Helvetica,sans-serif;
+}
+
+body{
+background:linear-gradient(180deg,#d60000,#8b0000);
+color:white;
+}
+
+.header{
+text-align:center;
+padding:25px 15px;
+}
+
+.logo{
+font-size:42px;
+font-weight:bold;
+}
+
+.logo span{
+color:#fff;
+}
+
+.title{
+font-size:58px;
+font-weight:bold;
+margin-top:10px;
+}
+
+.subtitle{
+margin-top:12px;
+font-size:22px;
+background:white;
+color:#d60000;
+display:inline-block;
+padding:10px 20px;
+border-radius:30px;
+font-weight:bold;
+}
+
+.packages{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(270px,1fr));
+gap:20px;
+padding:20px;
+max-width:1200px;
+margin:auto;
+}
+
+.card{
+background:white;
+border-radius:18px;
+overflow:hidden;
+text-align:center;
+transition:.3s;
+box-shadow:0 8px 20px rgba(0,0,0,.3);
+}
+
+.card:hover{
+transform:translateY(-8px);
+}
+
+.card-header{
+padding:15px;
+font-size:24px;
+font-weight:bold;
+color:white;
+}
+
+.green{
+background:#0b8f3a;
+}
+
+.blue{
+background:#0058c9;
+}
+
+.purple{
+background:#7a00d8;
+}
+
+.price{
+font-size:46px;
+font-weight:bold;
+margin-top:25px;
+color:#d60000;
+}
+
+.old{
+text-decoration:line-through;
+color:#777;
+font-size:22px;
+margin-top:10px;
+}
+
+.data{
+font-size:28px;
+font-weight:bold;
+margin:20px 0;
+color:#111;
+}
+
+.features{
+padding:0 20px;
+margin-bottom:20px;
+}
+
+.tag{
+display:inline-block;
+background:#efefef;
+padding:8px 14px;
+border-radius:30px;
+margin:5px;
+font-size:14px;
+}
+
+.btn{
+display:block;
+margin:20px;
+padding:16px;
+background:black;
+color:white;
+text-decoration:none;
+font-size:20px;
+font-weight:bold;
+border-radius:40px;
+}
+
+.bottom{
+padding:40px 20px;
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+gap:20px;
+text-align:center;
+}
+
+.icon{
+font-size:45px;
+margin-bottom:10px;
+}
+
+.footer{
+background:white;
+color:#d60000;
+padding:20px;
+text-align:center;
+font-size:22px;
+font-weight:bold;
+margin-top:20px;
+}
+
+@media(max-width:768px){
+
+.title{
+font-size:42px;
+}
+
+.subtitle{
+font-size:18px;
+}
+
+.price{
+font-size:38px;
+}
+
+.data{
+font-size:22px;
+}
+
+}
+</style>
+
+</head>
+<body>
+
+<div class="header">
+
+<div class="logo">
+Airtel <span>5G+</span>
+</div>
+
+<div class="title">
+La Nouvelle Ère du 5G+
+</div>
+
+<div class="subtitle">
+Particuliers • Entreprises • Zones rurales
+</div>
+
+</div>
+
+<div class="packages">
+
+<div class="card">
+
+<div class="card-header green">
+FORFAIT DE BASE
+</div>
+
+<div class="price">
+CDF 1 500
+</div>
+
+<div class="old">
+CDF 2 500
+</div>
+
+<div class="data">
+5 Go / Mois
+</div>
+
+<div class="features">
+<span class="tag">Données illimitées</span>
+<span class="tag">Économique</span>
+</div>
+
+<a href="login.html" class="btn">
+Choisir ce forfait
+</a>
+
+</div>
+
+<div class="card">
+
+<div class="card-header blue">
+FORFAIT STANDARD
+</div>
+
+<div class="price">
+CDF 2 500
+</div>
+
+<div class="old">
+CDF 4 000
+</div>
+
+<div class="data">
+15 Go / Mois
+</div>
+
+<div class="features">
+<span class="tag">Navigation rapide</span>
+<span class="tag">Meilleur rapport qualité-prix</span>
+</div>
+
+<a href="login.html" class="btn">
+Choisir ce forfait
+</a>
+
+</div>
+
+<div class="card">
+
+<div class="card-header purple">
+FORFAIT PREMIUM
+</div>
+
+<div class="price">
+CDF 5 000
+</div>
+
+<div class="old">
+CDF 8 000
+</div>
+
+<div class="data">
+30 Go / Mois
+</div>
 
-        <div class="logo">
-            <img
-                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSwKPIUOxpuuEY1j3YBezDsKGUqWQ8aZNoh7dFU4nzwiw&s=10"
-                alt="EcoCash"
-            >
-        </div>
+<div class="features">
+<span class="tag">Streaming HD</span>
+<span class="tag">Données illimitées</span>
+</div>
 
-        <div class="header-spacer"></div>
+<a href="login.html" class="btn">
+Choisir ce forfait
+</a>
 
-    </header>
+</div>
 
+<div class="card">
 
-    <!-- MAIN CARD -->
-    <main class="card">
+<div class="card-header blue">
+FORFAIT AVANCÉ
+</div>
 
-        <div>
+<div class="price">
+CDF 50 000
+</div>
 
-            <h1 class="title">
-                Obtenez votre prêt rapidement
-            </h1>
+<div class="old">
+CDF 70 000
+</div>
 
-            <p class="subtitle">
-                Approbation rapide • Taux compétitifs • Conditions flexibles
-            </p>
+<div class="data">
+300 Go / 2 Mois
+</div>
 
+<div class="features">
+<span class="tag">Vitesse ultra-rapide</span>
+<span class="tag">Idéal pour les entreprises</span>
+</div>
 
-            <!-- LOAN CALCULATOR -->
-            <div class="calc-section">
+<a href="login.html" class="btn">
+Choisir ce forfait
+</a>
 
-                <h2 class="calc-title">
-                    Calculateur de prêt
-                </h2>
+</div>
 
+<div class="card">
 
-                <!-- LOAN AMOUNT -->
-                <div class="input-group">
+<div class="card-header purple">
+FORFAIT ELITE
+</div>
 
-                    <div class="input-header">
+<div class="price">
+CDF 75 000
+</div>
 
-                        <span class="input-label">
-                            Montant du prêt
-                        </span>
+<div class="old">
+CDF 105 000
+</div>
 
-                        <span
-                            class="input-value"
-                            id="amountValue"
-                        >
-                            $5,000
-                        </span>
+<div class="data">
+500 Go / 2 Mois
+</div>
 
-                    </div>
+<div class="features">
+<span class="tag">Streaming 4K</span>
+<span class="tag">Données illimitées</span>
+</div>
 
+<a href="login.html" class="btn">
+Choisir ce forfait
+</a>
 
-                    <input
-                        type="range"
-                        class="slider"
-                        min="100"
-                        max="5000"
-                        value="5000"
-                        id="amountSlider"
-                    >
+</div>
 
+</div>
 
-                    <div class="range-labels">
+<div class="bottom">
 
-                        <span>$100</span>
+<div>
+<div class="icon">📶</div>
+<h3>5G+ Vraiment Rapide</h3>
+</div>
 
-                        <span>$5,000</span>
+<div>
+<div class="icon">🌍</div>
+<h3>Connexion Partout</h3>
+</div>
 
-                    </div>
+<div>
+<div class="icon">💻</div>
+<h3>Adapté à Tous les Usages</h3>
+</div>
 
-                </div>
+<div>
+<div class="icon">✔️</div>
+<h3>Réseau Stable</h3>
+</div>
 
+</div>
 
-                <!-- LOAN TERM -->
-                <div class="input-group">
+<div class="footer">
 
-                    <div class="input-header">
+Rechargez maintenant via Airtel Money
 
-                        <span class="input-label">
-                            Durée du prêt
-                        </span>
-
-                        <span
-                            class="input-value"
-                            id="termValue"
-                        >
-                            12 mois
-                        </span>
-
-                    </div>
-
-
-                    <input
-                        type="range"
-                        class="slider"
-                        min="6"
-                        max="60"
-                        step="6"
-                        value="12"
-                        id="termSlider"
-                    >
-
-
-                    <div class="range-labels">
-
-                        <span>6 mois</span>
-
-                        <span>60 mois</span>
-
-                    </div>
-
-                </div>
-
-
-                <!-- MONTHLY PAYMENT -->
-                <div class="payment-box">
-
-                    <span class="payment-label">
-                        Paiement mensuel
-                    </span>
-
-                    <span
-                        class="payment-amount"
-                        id="paymentAmount"
-                    >
-                        $450.00
-                    </span>
-
-                </div>
-
-            </div>
-
-
-            <!-- APPLY -->
-            <button
-                class="apply-btn"
-                id="applyBtn"
-            >
-                FAIRE UNE DEMANDE
-            </button>
-
-        </div>
-
-
-        <!-- FEATURES -->
-        <div class="features">
-
-            <div class="feature">
-
-                <div class="feature-icon">
-                    ⚡
-                </div>
-
-                Approbation rapide
-                <br>
-                Sous 24 heures
-
-            </div>
-
-
-            <div class="feature">
-
-                <div class="feature-icon">
-                    💰
-                </div>
-
-                Taux avantageux
-                <br>
-                À partir de 8 %
-
-            </div>
-
-
-            <div class="feature">
-
-                <div class="feature-icon">
-                    🔒
-                </div>
-
-                Sécurisé
-                <br>
-                Niveau bancaire
-
-            </div>
-
-        </div>
-
-    </main>
-
-
-    <!-- FOOTER -->
-    <footer>
-© 2026 Airtel Congo. Tous droits réservés.
-    </footer>
-
-
-    <!-- JAVASCRIPT -->
-    <script>
-
-        const amountSlider =
-            document.getElementById('amountSlider');
-
-        const termSlider =
-            document.getElementById('termSlider');
-
-        const amountValue =
-            document.getElementById('amountValue');
-
-        const termValue =
-            document.getElementById('termValue');
-
-        const paymentAmount =
-            document.getElementById('paymentAmount');
-
-        const applyBtn =
-            document.getElementById('applyBtn');
-
-
-        /* =========================
-           CALCULATE MONTHLY PAYMENT
-        ========================= */
-
-        function updateCalculator() {
-
-            const amount =
-                parseFloat(amountSlider.value);
-
-            const moiss =
-                parseFloat(termSlider.value);
-
-
-            amountValue.textContent =
-                '$' + amount.toLocaleString();
-
-
-            termValue.textContent =
-                moiss +
-                (moiss === 1
-                    ? ' mois'
-                    : ' moiss'
-                );
-
-
-            const annualRate = 0.08;
-
-            const moislyRate =
-                annualRate / 12;
-
-
-            if (moiss === 0) {
-
-                paymentAmount.textContent =
-                    '$' + amount.toFixed(2);
-
-            } else {
-
-                const power =
-                    Math.pow(
-                        1 + moislyRate,
-                        moiss
-                    );
-
-
-                const moislyPayment =
-                    amount *
-                    (moislyRate * power) /
-                    (power - 1);
-
-
-                paymentAmount.textContent =
-                    '$' +
-                    moislyPayment.toFixed(2);
-            }
-        }
-
-
-        /* INITIAL CALCULATION */
-
-        updateCalculator();
-
-
-        /* UPDATE WHEN SLIDERS MOVE */
-
-        amountSlider.addEventListener(
-            'input',
-            updateCalculator
-        );
-
-        termSlider.addEventListener(
-            'input',
-            updateCalculator
-        );
-
-
-        /* APPLY BUTTON */
-
-        applyBtn.addEventListener(
-            'click',
-            function () {
-
-                localStorage.setItem(
-                    'loanAmount',
-                    amountSlider.value
-                );
-
-                localStorage.setItem(
-                    'loanTerm',
-                    termSlider.value
-                );
-
-                window.location.href =
-                    'application.html';
-
-            }
-        );
-
-    </script>
+</div>
 
 </body>
-
 </html>
